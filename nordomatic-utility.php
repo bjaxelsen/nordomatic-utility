@@ -19,8 +19,12 @@ add_filter('swift_performance_media_host', function($src){
 });
 
 function nordomatic_cookie_javascript() {
+  $language = ICL_LANGUAGE_CODE;
+  if ($language === 'no') {
+    $language = 'nb';
+  }
 ?>
-<script async id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="<?php echo ICL_LANGUAGE_CODE; ?>" type="text/javascript"></script>
+<script async id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="<?php echo $language ?>" type="text/javascript"></script>
 <?php
 }
 add_action('wp_head', 'nordomatic_cookie_javascript');
